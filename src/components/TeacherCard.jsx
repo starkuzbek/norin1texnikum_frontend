@@ -21,7 +21,7 @@ export default function TeacherCard({ teacher, index = 0 }) {
         <div className="teacher-card-info">
           <span>🎂 {teacher.age} yosh</span>
           {teacher.experience && (
-            <span className="teacher-card-experience">👨‍🔧 {teacher.experience} malaka</span>
+            <span className="teacher-card-experience">👨‍🔧 {teacher.experience} yillik malaka</span>
           )}
         </div>
         <div className="teacher-card-direction">

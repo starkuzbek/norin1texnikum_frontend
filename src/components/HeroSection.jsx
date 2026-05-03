@@ -1,6 +1,13 @@
 import { Link } from 'react-router-dom';
 
-export default function HeroSection({ homeData }) {
+export default function HeroSection({ homeData, loading }) {
+  const StatLoading = () => (
+    <div className="hero-stat-loading">
+      <div className="hero-stat-number-loading"></div>
+      <div className="hero-stat-label-loading"></div>
+    </div>
+  );
+
   return (
     <section className="hero" id="hero-section">
       <div className="container hero-content">
@@ -36,20 +43,44 @@ export default function HeroSection({ homeData }) {
           <div className="hero-card">
             <div className="hero-stats">
               <div className="hero-stat">
-                <div className="hero-stat-number">{homeData?.students_count || '500+'}</div>
-                <div className="hero-stat-label">O'quvchilar</div>
+                {loading ? (
+                  <StatLoading />
+                ) : (
+                  <>
+                    <div className="hero-stat-number">{homeData?.students_count || '500+'}</div>
+                    <div className="hero-stat-label">O'quvchilar</div>
+                  </>
+                )}
               </div>
               <div className="hero-stat">
-                <div className="hero-stat-number">{homeData?.teachers_count || '50+'}</div>
-                <div className="hero-stat-label">O'qituvchilar</div>
+                {loading ? (
+                  <StatLoading />
+                ) : (
+                  <>
+                    <div className="hero-stat-number">{homeData?.teachers_count || '50+'}</div>
+                    <div className="hero-stat-label">O'qituvchilar</div>
+                  </>
+                )}
               </div>
               <div className="hero-stat">
-                <div className="hero-stat-number">{homeData?.directions_count || '10+'}</div>
-                <div className="hero-stat-label">Yo'nalishlar</div>
+                {loading ? (
+                  <StatLoading />
+                ) : (
+                  <>
+                    <div className="hero-stat-number">{homeData?.directions_count || '10+'}</div>
+                    <div className="hero-stat-label">Yo'nalishlar</div>
+                  </>
+                )}
               </div>
               <div className="hero-stat">
-                <div className="hero-stat-number">{homeData?.experience_years || '30+'}</div>
-                <div className="hero-stat-label">Yillik tajriba</div>
+                {loading ? (
+                  <StatLoading />
+                ) : (
+                  <>
+                    <div className="hero-stat-number">{homeData?.experience_years || '30+'}</div>
+                    <div className="hero-stat-label">Yillik tajriba</div>
+                  </>
+                )}
               </div>
             </div>
           </div>

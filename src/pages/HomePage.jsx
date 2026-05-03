@@ -13,6 +13,9 @@ export default function HomePage() {
   useEffect(() => {
     async function loadData() {
       try {
+        // Test uchun 3 soniya kutish
+        await new Promise(resolve => setTimeout(resolve, 3000));
+        
         const [home, news, dirs] = await Promise.all([
           fetchHome(),
           fetchNews(),
@@ -33,7 +36,7 @@ export default function HomePage() {
   if (loading) {
     return (
       <>
-        <HeroSection />
+        <HeroSection loading={true} />
         <div className="loading">
           <div className="loading-spinner"></div>
           <div className="loading-text">Yuklanmoqda...</div>
@@ -45,7 +48,7 @@ export default function HomePage() {
   return (
     <div id="home-page">
       {/* Hero */}
-      <HeroSection homeData={homeData} />
+      <HeroSection homeData={homeData} loading={false} />
 
       {/* About */}
       <section className="section" id="about-section">
